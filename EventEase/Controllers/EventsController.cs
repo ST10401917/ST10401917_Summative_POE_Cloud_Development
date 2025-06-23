@@ -35,6 +35,7 @@ namespace EventEase.Controllers
             }
 
             var @event = await _context.Event
+                .Include(e => e.EventType)
                 .FirstOrDefaultAsync(m => m.EventId == id);
             if (@event == null)
             {
@@ -81,6 +82,7 @@ namespace EventEase.Controllers
             {
                 return NotFound();
             }
+            ViewBag.EventTypeId = new SelectList(_context.EventTypes, "EventTypeId", "EventTypeName", @event.EventTypeId);
             return View(@event);
         }
 
@@ -89,7 +91,7 @@ namespace EventEase.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("EventId,EventName,EventDate,Description")] Event @event)
+        public async Task<IActionResult> Edit(int id, [Bind("EventId,EventName,EventDate,Description,EventTypeId")] Event @event)
         {
             if (id != @event.EventId)
             {
@@ -116,6 +118,7 @@ namespace EventEase.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewBag.EventTypeId = new SelectList(_context.EventTypes, "EventTypeId", "EventTypeName", @event.EventTypeId);
             return View(@event);
         }
 
@@ -128,6 +131,7 @@ namespace EventEase.Controllers
             }
 
             var @event = await _context.Event
+                 .Include(e => e.EventType)
                 .FirstOrDefaultAsync(m => m.EventId == id);
             if (@event == null)
             {
