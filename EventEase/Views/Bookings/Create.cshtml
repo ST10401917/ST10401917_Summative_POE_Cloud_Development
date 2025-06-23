@@ -1,0 +1,48 @@
+﻿@model EventEase.Models.Booking
+
+@{
+    ViewBag.Title = "Create Booking";
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+}
+
+<h2>Create Booking</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <div class="form-group">
+            @Html.LabelFor(model => model.VenueId, "Select Venue", htmlAttributes: new { @class = "control-label" })
+            @Html.DropDownListFor(model => model.VenueId, (SelectList)ViewBag.GamerId, "   Please select a Venue", new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.VenueId, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.EventId, "Select Event", htmlAttributes: new { @class = "control-label" })
+            @Html.DropDownListFor(model => model.EventId, (SelectList)ViewBag.GameID, "Please select a Event", new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.EventId, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            <label asp-for="BookingDate" class="control-label"></label>
+            <input asp-for="BookingDate" class="form-control" />
+            <span asp-validation-for="BookingDate" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Save" class="btn btn-primary" />
+        </div>
+    </div>
+}
+
+<div>
+    <a asp-action="Index" class="btn btn-info btn-sm me-1">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

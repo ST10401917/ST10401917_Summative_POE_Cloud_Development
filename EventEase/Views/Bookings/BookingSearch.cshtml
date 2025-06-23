@@ -1,0 +1,81 @@
+﻿@model IEnumerable<EventEase.Models.ViewModels.BookingSearchViewModel>
+
+@{
+    ViewData["Title"] = "🔎 Booking Search";
+}
+
+<h2 class="mb-4">🔎 Booking Search</h2>
+
+<form asp-action="BookingSearch" method="get" class="form-inline flex-wrap mb-4">
+    <div class="form-group mr-2">
+        <label><b>Booking ID</b></label>
+        <input type="text" name="bookingId" class="form-control" placeholder="e.g. 101" />
+    </div>
+
+    <div class="form-group mr-2">
+        <label><b>Event Name</b></label>
+        <input type="text" name="eventName" class="form-control" placeholder="e.g. Wedding" />
+    </div>
+
+    <div class="form-group mr-2">
+        <label><b>Start Date</b></label>
+        <input type="date" name="startDate" class="form-control" />
+    </div>
+
+    <div class="form-group mr-2">
+        <label><b>End Date</b></label>
+        <input type="date" name="endDate" class="form-control" />
+    </div>
+
+    <div class="form-group mr-2">
+        <label><b>Event Type</b></label>
+        <select name="eventTypeId" class="form-control">
+            <option value="">-- Select Event Type --</option>
+            @foreach (var type in (SelectList)ViewBag.EventTypes)
+            {
+                <option value="@type.Value">@type.Text</option>
+            }
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-2">Search</button>
+</form>
+
+<table class="rounded-table">
+    <thead>
+        <tr>
+            <th>Booking ID</th>
+            <th>Event Name</th>
+            <th>Venue Name</th>
+            <th>Event Type</th>
+            <th>Location</th>
+            <th>Capacity</th>
+            <th>Description</th>
+            <th>Booking Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (!Model.Any())
+        {
+            <tr>
+                <td colspan="8" class="text-center">No bookings found for the selected criteria.</td>
+            </tr>
+        }
+        else
+        {
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.BookingId</td>
+                    <td>@item.EventName</td>
+                    <td>@item.VenueName</td>
+                    <td>@item.EventTypeName</td>
+                    <td>@item.Location</td>
+                    <td>@item.Capacity</td>
+                    <td>@item.Description</td>
+                    <td>@item.BookingDate.ToShortDateString()</td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

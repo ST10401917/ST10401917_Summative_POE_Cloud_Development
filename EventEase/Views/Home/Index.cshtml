@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "Welcome to EventEase";
+}
+
+<!-- Hero Section -->
+<section class="hero-section text-white text-center d-flex flex-column justify-content-center align-items-center">
+    <div>
+        <h1 class="display-4 fw-bold mb-3">Welcome to EventEase</h1>
+        <p class="lead mb-4">Designed By Prashik Gangaparsad to Plan, manage, and book your events and venues — all in one platform.</p>
+
+        <!-- Features Section -->
+        <section class="container my-5">
+            <div class="text-center mb-4">
+                <h2 class="fw-bold">What You Can Do</h2>
+                <p class="fw-bold">Add a Venue, Add a Event and Create bookings</p>
+            </div>
+
+
+        </section>
+        <a class="btn btn-primary btn-lg me-2" asp-controller="Venues" asp-action="Index">Browse Venues</a>
+        <a class="btn btn-success btn-lg me-2" asp-controller="Events" asp-action="Index">Add Events</a>
+        <a class="btn btn-warning btn-lg" asp-controller="Bookings" asp-action="Create">Book an Event</a>
+    </div>
+</section>
+
+

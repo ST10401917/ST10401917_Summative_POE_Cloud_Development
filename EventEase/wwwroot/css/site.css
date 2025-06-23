@@ -1,0 +1,171 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url("/image/background.jpg");
+    color: white;
+}
+
+label{
+    color: white;
+}
+
+.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
+  color: var(--bs-secondary-color);
+  text-align: end;
+}
+
+.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
+  text-align: start;
+}
+
+/* Navbar Custom Style */
+.navbar-custom {
+    background-color: #A020F0; /* deep navy blue */
+    border-bottom: 3px solid #00bfff; /* cyan highlight */
+}
+
+.navbar-custom .navbar-brand {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    }
+
+    .navbar-custom .nav-link {
+        color: red;
+        font-weight: 500;
+        margin-right: 15px;
+        padding: 10px 15px;
+        transition: background-color 0.3s ease;
+    }
+
+.navbar-custom .nav-link:hover {
+            background-color: white;
+            border-radius: 5px;
+            color: white;
+        }
+
+
+
+.rounded-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 15px; /* space between rows */
+}
+
+    .rounded-table thead th {
+        background-color: #004080;
+        color: white;
+        padding: 12px;
+        text-align: left;
+        border: none;
+    }
+
+    .rounded-table tbody tr {
+        background-color: #f0f8ff;
+        border-radius: 12px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .rounded-table tbody td {
+        padding: 16px;
+        border-top: none;
+        color: black;
+        font-weight:bold
+
+    }
+
+    .rounded-table tbody tr td:first-child {
+        border-top-left-radius: 12px;
+        border-bottom-left-radius: 12px;
+    }
+
+    .rounded-table tbody tr td:last-child {
+        border-top-right-radius: 12px;
+        border-bottom-right-radius: 12px;
+    }
+
+.venue-img {
+    width: 90px;
+    height: 50px;
+    object-fit: cover;
+    margin-right: 15px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.2); /* Optional shadow */
+}
+
+.venue-info {
+    display: flex;
+    align-items: center;
+}
+
+.btn-view {
+    background-color: #0dcaf0;
+    color: white;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 6px;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+}
+
+.btn-edit {
+    background-color: #ffc107;
+    color: black;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 6px;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+}
+
+.btn-delete {
+    background-color: #dc3545;
+    color: white;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 6px;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+}
+
+/* Optional: hover effect */
+.btn-view:hover {
+    background-color: #0bb1d4;
+}
+
+.btn-edit:hover {
+    background-color: #e6b200;
+}
+
+.btn-delete:hover {
+    background-color: #b02a37;
+}

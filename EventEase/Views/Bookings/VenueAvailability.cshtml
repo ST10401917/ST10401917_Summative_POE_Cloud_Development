@@ -1,0 +1,49 @@
+﻿@model IEnumerable<EventEase.Models.Venue>
+
+@{
+    ViewData["Title"] = "📅 Venue Availability";
+    var selectedDate = ViewBag.SelectedDate as DateTime?;
+}
+
+<h2 class="mb-4">📅 Venue Availability</h2>
+
+<form asp-action="VenueAvailability" method="get" class="form-inline flex-wrap mb-4">
+    <div class="form-group mr-3">
+        <label for="selectedDate" class="mr-2"><strong>Select Date:</strong></label>
+        <input type="date" id="selectedDate" name="selectedDate" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-2">Check Availability</button>
+</form>
+
+@if (selectedDate != null)
+{
+    <h5 class="mb-3">Available Venues on <strong>@selectedDate?.ToString("yyyy-MM-dd")</strong></h5>
+
+    @if (!Model.Any())
+    {
+        <p class="text-danger">⚠️ No venues are available on this date.</p>
+    }
+    else
+    {
+        <table class="rounded-table">
+            <thead>
+                <tr>
+                    <th>Venue Name</th>
+                    <th>Location</th>
+                    <th>Capacity</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var venue in Model)
+                {
+                    <tr>
+                        <td>@venue.VenueName</td>
+                        <td>@venue.Location</td>
+                        <td>@venue.Capacity</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+}
