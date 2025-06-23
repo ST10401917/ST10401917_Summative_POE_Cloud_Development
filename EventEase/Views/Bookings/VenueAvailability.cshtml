@@ -1,11 +1,11 @@
 ﻿@model IEnumerable<EventEase.Models.Venue>
 
 @{
-    ViewData["Title"] = "📅 Venue Availability";
+    ViewData["Title"] = "Venue Availability";
     var selectedDate = ViewBag.SelectedDate as DateTime?;
 }
 
-<h2 class="mb-4">📅 Venue Availability</h2>
+<h2 class="mb-4">Venue Availability</h2>
 
 <form asp-action="VenueAvailability" method="get" class="form-inline flex-wrap mb-4">
     <div class="form-group mr-3">
