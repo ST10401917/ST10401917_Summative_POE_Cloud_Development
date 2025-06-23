@@ -14,10 +14,10 @@
 <table class="rounded-table">
     <thead>
         <tr>
-            <th>Image</th>
             <th>Venue Name</th>
             <th>Location</th>
             <th>Capacity</th>
+            <th>Image</th>
             <th>Actions</th>
         </tr>
     </thead>
@@ -25,14 +25,15 @@
         @foreach (var venue in Model)
         {
             <tr>
+                
+                <td>@venue.VenueName</td>
+                <td>@venue.Location</td>
+                <td>@venue.Capacity</td>
                 <td>
                     <div class="venue-info">
                         <img src="@venue.ImageUrl" alt="@venue.VenueName" class="venue-img" />
                     </div>
                 </td>
-                <td>@venue.VenueName</td>
-                <td>@venue.Location</td>
-                <td>@venue.Capacity</td>
                 <td class="venue-actions">
                     <a asp-action="Edit" asp-route-id="@venue.VenueId" class="btn-edit">Edit</a>
                     <a asp-action="Details" asp-route-id="@venue.VenueId" class="btn-view">Details</a>

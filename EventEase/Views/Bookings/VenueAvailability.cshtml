@@ -9,7 +9,7 @@
 
 <form asp-action="VenueAvailability" method="get" class="form-inline flex-wrap mb-4">
     <div class="form-group mr-3">
-        <label for="selectedDate" class="mr-2"><strong>Select Date:</strong></label>
+        <label for="selectedDate" class="mr-2"><strong> Please select date to check for any available venues:</strong></label>
         <input type="date" id="selectedDate" name="selectedDate" class="form-control" />
     </div>
 
@@ -22,7 +22,7 @@
 
     @if (!Model.Any())
     {
-        <p class="text-danger">⚠️ No venues are available on this date.</p>
+        <p class="text-danger">No venues are available on this date.</p>
     }
     else
     {

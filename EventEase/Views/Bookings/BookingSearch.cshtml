@@ -9,12 +9,12 @@
 <form asp-action="BookingSearch" method="get" class="form-inline flex-wrap mb-4">
     <div class="form-group mr-2">
         <label><b>Booking ID</b></label>
-        <input type="text" name="bookingId" class="form-control" placeholder="e.g. 101" />
+        <input type="text" name="bookingId" class="form-control" />
     </div>
 
     <div class="form-group mr-2">
         <label><b>Event Name</b></label>
-        <input type="text" name="eventName" class="form-control" placeholder="e.g. Wedding" />
+        <input type="text" name="eventName" class="form-control" />
     </div>
 
     <div class="form-group mr-2">
@@ -30,7 +30,7 @@
     <div class="form-group mr-2">
         <label><b>Event Type</b></label>
         <select name="eventTypeId" class="form-control">
-            <option value="">-- Select Event Type --</option>
+            <option value="">Select Event Type</option>
             @foreach (var type in (SelectList)ViewBag.EventTypes)
             {
                 <option value="@type.Value">@type.Text</option>
